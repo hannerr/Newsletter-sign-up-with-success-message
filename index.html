@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Roboto-bold';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local('Roboto'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+    }
+    body {
+      width: 100%;
+      margin:0;
+      display: grid;
+      place-content: center;
+      font-size: 0.9rem;
+      font-family: Roboto;
+      background-color: hsl(235, 18%, 26%);
+    }
+    section {
+      width: 375px;
+      background-color: white;
+      display:grid;
+      grid-template-columns: 1fr;
+    }
+    .bg-image {
+        background: url(assets/images/illustration-sign-up-mobile.svg) left center no-repeat;
+        height: 284px;
+    }
+    .text-box {
+      margin: 0 1.5rem 1.5rem 1.5rem;
+    }
+    h1 {
+      font-size: 1.9rem;
+      font-family: Roboto-bold;
+      color: hsl(234, 29%, 20%);
+    }
+    h1, p, form  {
+      color: hsl(234, 29%, 20%);
+    }
+    .list-img {
+      background: url(assets/images/icon-list.svg) no-repeat;
+      padding-left: 2rem;
+      min-height: 34px;
+      max-width: 275px;
+    }
+    .bold {
+      font-family: Roboto-bold;
+    }
+    .plabel {
+      margin: 0;
+      font-size: 0.7rem;
+      font-family: Roboto-bold;
+      display: flex;
+      justify-content: space-between;
+    }
+    .errmsg {
+      color: hsl(4, 100%, 67%);
+    }
+    .errdisplay {
+      border: 1px solid hsl(4, 100%, 67%);
+      background-color: hsl(4, 100%, 67%, 0.2);
+    }
+    .errdisplay::placeholder {
+      color: hsl(4, 100%, 67%);
+      opacity: 1; /* Firefox */
+    }
+    .errdisplay::-ms-input-placeholder { /* Edge 12-18 */
+      color: hsl(4, 100%, 67%);;
+    }
+    input {
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: 1px solid hsl(231, 7%, 60%);
+      padding: 1rem;
+      width: calc(100% - 2rem);
+    }
+    button {
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: hsl(234, 29%, 20%);
+      color: white;
+      padding: 1rem;
+      width: 100%;
+    }
+    input:hover, button:hover {
+      cursor: pointer;
+    } 
+    button:hover {
+      background-image:linear-gradient(90deg, rgb(219, 21, 107) 5%, hsl(4, 100%, 67%));
+      box-shadow: 0px 15px 38px -9px rgba(0,0,0,0.5);
+      -webkit-box-shadow: 0px 15px 38px -9px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 15px 38px -9px rgba(0,0,0,0.5);
+    }
+    .successmsg {
+      display: none;
+      height: 100vh;
+    }
+    .successmsg div {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 6rem;
+      margin-bottom: auto;
+    }
+    .successmsg button {
+      margin: auto 1rem 1rem 1rem;
+      width: auto;
+    }
+    @media (min-width: 1440px) {
+      body {
+        min-height: 100vh;
+      }
+      .nl-form {
+        width: 100%;
+        max-width: 850px;
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 15px;
+      }
+      .bg-image {
+        background: url(assets/images/illustration-sign-up-desktop.svg) left center no-repeat;
+        height: 91vh;
+      }
+      .text-box {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        margin: 0 3rem;
+      }
+      .nl-form .bg-image {
+        order: 2;
+      }
+      .successmsg {
+        grid-template-columns: 1fr;
+        height: auto;
+        border-radius: 15px;
+      }
+      .successmsg div {
+        margin: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+  <section class="nl-form">
+    <div class="bg-image"></div>
+    <div class="text-box">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <p class="list-img">Product discovery and building what matters</p>
+      <p class="list-img">Measuring to ensure updates are a success</p>
+      <p class="list-img">And much more!</p>
+      <form action="#" method="POST">
+        <p class="plabel"><label for="email">Email address</label><span class="errmsg"></span></p>
+        <input type="email" id="email" name="email" placeholder="email@company.com">
+        <button type="submit">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+  </section>
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+  <section class="successmsg">
+    <div>
+      <img src="./assets/images/icon-success.svg" alt="success">
+      <h1>Thanks for subscribing!</h1>
+      <p>A confirmation email has been sent to A confirmation email has been sent to <span id="emaillist" class="bold"></span>. 
+        Please open it and click the button inside to confirm your subscription. Thanks for subscribing!</p>
+    </div>
+    <button>Dismiss message</button>
+  </section>
+  <!-- Success message end -->
+</body>
+<script>
+  const form = document.querySelector('form');
+  const nlForm = document.querySelector('.nl-form');
+  const successmsg = document.querySelector('.successmsg');
+  const button = document.querySelector('button');
+  const dismiss = document.querySelector('.successmsg button');
+
+  function validateEmail(email) {
+    //check if email is empty
+    if (!email) {
+      return 'Valid email address required!';
+    }
+    //check if email is valid
+    const re = /\S+@\S+\.\S+/;
+    if (re.test(email)) {
+      return true;
+    }
+    return 'Please provide a valid email address!';
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formDataEntries = new FormData(form);
+    //works for single form field
+    let emailAddress = formDataEntries.get('email');
+    //if more form fields exist loop through object
+    /*for (let entry of formDataEntries) {
+      emailAddress = entry[1];
+      console.log(entry);
+    }*/
+    //start email validation
+    const emailErrorMessage = validateEmail(emailAddress);
+    //if email is valid
+    if (emailErrorMessage === true) {
+      document.getElementById('emaillist').innerHTML = emailAddress;
+      successmsg.style.display = 'grid';
+      nlForm.style.display = 'none';
+    } else {
+      document.querySelector('.errmsg').textContent = emailErrorMessage;
+      document.getElementById('email').classList.add('errdisplay');
+      return;
+    } 
+  });
+
+  dismiss.addEventListener('click', () => {
+    successmsg.style.display = 'none';
+    nlForm.style.display = 'grid';
+    form.reset();
+  });
+</script>
+</html>
